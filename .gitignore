@@ -1,0 +1,55 @@
+# 🔹 Archivos de compilación
+bin/
+obj/
+
+# 🔹 Dependencias de NuGet
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.assets.json
+
+# 🔹 Configuración y caché de Visual Studio
+.vscode/
+.vs/
+*.user
+*.suo
+*.psess
+*.pidb
+*.sdf
+*.dbmdl
+*.jfm
+
+# 🔹 Archivos generados de logs y depuración
+*.log
+debug/
+debug.log
+logs/
+
+# 🔹 Configuración de entorno
+.env
+appsettings.Development.json
+appsettings.Local.json
+
+# 🔹 Caché de Rider y Resharper (JetBrains)
+.idea/
+*.iml
+*.dotCover
+*.sln.DotSettings
+*.sln.DotSettings.user
+
+# 🔹 Configuración de Docker
+**/docker-compose.override.yml
+**/.dockerignore
+
+# 🔹 Publicación y despliegue
+publish/
+*.publishsettings
+*.deploy.cmd
+*.deploy-readme.txt
+*.pubxml
+*.pubxml.user
+
+# 🔹 Archivos temporales y de sistema
+.DS_Store
+Thumbs.db
