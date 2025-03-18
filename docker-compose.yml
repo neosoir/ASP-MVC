@@ -11,10 +11,11 @@ services:
       - ./app:/app:rw
     working_dir: /app
     environment:
-      - ASPNETCORE_URLS=http://0.0.0.0:80
+      ASPNETCORE_URLS: ${ASPNETCORE_URLS}
     stdin_open: true
     tty: true
     user: "1000:1000"  # ← Forzar que el contenedor use el UID y GID correctos
+      
     #environment:
     #  - ASPNETCORE_ENVIRONMENT=Development
     #  - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=MiBaseDeDatos;User Id=sa;Password=TuPasswordSeguro;TrustServerCertificate=True;
