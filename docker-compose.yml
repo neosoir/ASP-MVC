@@ -1,17 +1,20 @@
 services:
-  webapi:
+  mvc:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: ctr_aspdotnet
+    image: img_mvc_dotnet:1.0
+    container_name: ctr_mvc_dotnet
     ports:
       - "5000:80"
     volumes:
-      - ./app:/app
-
+      - ./app:/app:rw
     working_dir: /app
+    environment:
+      - ASPNETCORE_URLS=http://0.0.0.0:80
     stdin_open: true
     tty: true
+    user: "1000:1000"  # ← Forzar que el contenedor use el UID y GID correctos
     #environment:
     #  - ASPNETCORE_ENVIRONMENT=Development
     #  - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=MiBaseDeDatos;User Id=sa;Password=TuPasswordSeguro;TrustServerCertificate=True;
