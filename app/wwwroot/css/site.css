@@ -8,6 +8,18 @@ html {
   }
 }
 
+@media (max-width: 560px) {
+  /* Tarjetas */
+  .features {
+      flex-wrap: wrap;
+
+    .card {
+      width: 100%;
+      flex: unset !important;
+    }
+  }
+}
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -19,4 +31,87 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+
+
+/* Contenedor principal */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    /* Estilos de la Home */
+    .hero {
+        text-align: center;
+        padding: 50px;
+        background: #007BFF;
+        color: white;
+        border-radius: 10px;
+
+        .btn {
+            background: #fff;
+            color: #007BFF;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+    }
+    
+    /* Tarjetas */
+    .features {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+  
+      .card {
+          background: #eee;
+          padding: 20px;
+          border-radius: 10px;
+          margin: 10px;
+          text-align: center;
+          flex: 1;
+      }
+    }
+
+    /* About Page */
+    .about-content {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        
+        .about-card {
+            background: #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            margin: 10px;
+            text-align: center;
+        }
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #222;
+    color: white;
+    margin-top: 0px;
+
+    .container {
+      max-width: 900px;
+      margin: 10px auto;
+      padding: 10px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      p {
+        margin: 0px;
+      }
+  }
 }
