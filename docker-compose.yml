@@ -48,6 +48,7 @@ services:
     working_dir: /app
     environment:
       ASPNETCORE_URLS: ${ASPNETCORE_URLS}
+      PATH: ${PATH}:${DOTNET_TOOLS_PATH}
     stdin_open: true
     tty: true
     user: "1000:1000"  # ← Forzar que el contenedor use el UID y GID correctos
