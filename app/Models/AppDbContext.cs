@@ -9,6 +9,6 @@ namespace ASP.app.Models
         {
         }
 
-        //public DbSet<Person> People { get; set; }
+        public DbSet<Person> People { get; set; }
     }
 }
