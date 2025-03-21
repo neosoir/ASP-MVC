@@ -9,42 +9,44 @@
     <div class="alert alert-success">@ViewBag.Message</div>
 }
 
-<h1 class="mb-4"
-    style="text-align: center;
-    padding: 15px 0px;
-    border-bottom: solid 1px #797878;
-    margin: 30px;">
-    Personas
-</h1>
+<div class="container">
+    <h1 class="mb-4"
+        style="text-align: center;
+        padding: 15px 0px;
+        border-bottom: solid 1px #797878;
+        margin: 30px;">
+        Personas
+    </h1>
 
-<a class="btn btn-primary mb-3" asp-action="Create">Agregar nueva persona</a>
+    <a class="btn btn-primary mb-3" asp-action="Create">Agregar nueva persona</a>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>A. Paterno</th>
-            <th>A. Materno</th>
-            <th>Edad</th>
-            <th>Vacuna</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var person in Model)
-        {
+    <table class="table table-bordered">
+        <thead>
             <tr>
-                <td>@person.FirstName</td>
-                <td>@person.LastName</td>
-                <td>@person.MiddleName</td>
-                <td>@person.Age</td>
-                <td>@person.Vaccine</td>
-                <td>
-                    <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@person.Id">Editar</a>
-                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@person.Id" 
-                       onclick="return confirm('¿Estás seguro de eliminar esta persona?');">Eliminar</a>
-                </td>
+                <th>Nombre</th>
+                <th>A. Paterno</th>
+                <th>A. Materno</th>
+                <th>Edad</th>
+                <th>Vacuna</th>
+                <th>Acciones</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var person in Model)
+            {
+                <tr>
+                    <td>@person.FirstName</td>
+                    <td>@person.LastName</td>
+                    <td>@person.MiddleName</td>
+                    <td>@person.Age</td>
+                    <td>@person.Vaccine</td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@person.Id">Editar</a>
+                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@person.Id" 
+                        onclick="return confirm('¿Estás seguro de eliminar esta persona?');">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
