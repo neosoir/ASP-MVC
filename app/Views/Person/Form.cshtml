@@ -5,7 +5,13 @@
     ViewData["Title"] = isEdit ? "Editar Persona" : "Crear Persona";
 }
 
-<h2>@ViewData["Title"]</h2>
+<h1 class="mb-4"
+    style="text-align: center;
+    padding: 15px 0px;
+    border-bottom: solid 1px #797878;
+    margin: 30px;">
+    @ViewData["Title"]
+</h1>
 
 <form asp-action="@(isEdit ? "Edit" : "Create")" method="post">
     @if (isEdit)
@@ -13,31 +19,31 @@
         <input type="hidden" asp-for="Id" />
     }
 
-    <div class="form-group">
+    <div class="form-group  mt-3 mb-3">
         <label asp-for="FirstName"></label>
         <input asp-for="FirstName" class="form-control" />
         <span asp-validation-for="FirstName" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group  mt-3 mb-3">
         <label asp-for="LastName"></label>
         <input asp-for="LastName" class="form-control" />
         <span asp-validation-for="LastName" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group  mt-3 mb-3">
         <label asp-for="MiddleName"></label>
         <input asp-for="MiddleName" class="form-control" />
         <span asp-validation-for="MiddleName" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group  mt-3 mb-3">
         <label asp-for="Age"></label>
         <input asp-for="Age" class="form-control" />
         <span asp-validation-for="Age" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group mt-3 mb-3">
         <label asp-for="Vaccine"></label>
         <select asp-for="Vaccine" class="form-control">
             <option value="">Seleccione una vacuna</option>
@@ -49,8 +55,10 @@
         <span asp-validation-for="Vaccine" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-success">Guardar</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    <div class="text-end mt-3">
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
 </form>
 
 @section Scripts {
