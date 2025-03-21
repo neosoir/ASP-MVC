@@ -1,0 +1,44 @@
+@model List<ASP.app.Models.Person>
+
+@{
+    ViewData["Title"] = "Lista de Personas";
+}
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">@ViewBag.Message</div>
+}
+
+<h2>Personas</h2>
+
+<a class="btn btn-primary mb-2" asp-action="Create">Agregar nueva persona</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>A. Paterno</th>
+            <th>A. Materno</th>
+            <th>Edad</th>
+            <th>Vacuna</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var person in Model)
+        {
+            <tr>
+                <td>@person.FirstName</td>
+                <td>@person.LastName</td>
+                <td>@person.MiddleName</td>
+                <td>@person.Age</td>
+                <td>@person.Vaccine</td>
+                <td>
+                    <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@person.Id">Editar</a>
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@person.Id" 
+                       onclick="return confirm('¿Estás seguro de eliminar esta persona?');">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
