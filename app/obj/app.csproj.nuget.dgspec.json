@@ -47,11 +47,11 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.3, )"
+              "version": "[8.0.3, )"
             },
-            "MySql.EntityFrameworkCore": {
+            "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[8.0.3, )"
             }
           },
           "imports": [

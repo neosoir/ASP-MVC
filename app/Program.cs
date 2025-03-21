@@ -1,15 +1,40 @@
+using ASP.app.Models; // Asegúrate de importar tu DbContext
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Leer la cadena de conexión desde appsettings.json
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Registrar AppDbContext con MySQL
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// ✅ Probar la conexión a la base de datos en tiempo de inicio
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    try
+    {
+        dbContext.Database.OpenConnection(); // Intenta abrir la conexión
+        Console.WriteLine("✅ Conexión a la base de datos exitosa.");
+        dbContext.Database.CloseConnection();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("❌ Error al conectar a la base de datos:");
+        Console.WriteLine(ex.Message);
+    }
+}
+
+// Middleware pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -17,7 +42,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthorization();
 
 app.MapControllerRoute(

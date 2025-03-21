@@ -39,6 +39,8 @@ services:
       dockerfile: Dockerfile
     image: img_dotnet_mvc:1.0
     container_name: ctr_dotnet_app
+    depends_on:
+      - db
     ports:
       - "5000:80"
     volumes:
